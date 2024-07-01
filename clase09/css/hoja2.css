@@ -1,0 +1,86 @@
+.titulo{
+    text-align:left
+}
+.web{
+    text-align: right;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+.container {
+    display: flex;
+    align-items: center;
+    padding: 60px;
+}
+.container > div {
+    margin-right: 20px;
+}
+img {
+    max-width: 80%;
+}
+.results {
+    margin-top: 20px;
+}
+h1 {
+    text-align: center;
+    color: rgb(41, 45, 243);
+}
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+select, input[type="number"], input[type="button"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+input[type="button"] {
+    background-color: #57bde6;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+input[type="button"]:hover {
+    background-color: #45a049;
+}
+.results {
+    margin-top: 20px;
+}
+.price-display {
+    margin-bottom: 20px;
+    font-size: 1.9em;
+    color: rgb(238, 149, 149);
+}
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+.menu a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px;
+    display: inline-block;
+}
+.menu a:hover {
+    background-color: #ddd;
+}
+footer{
+    background-color: #f1f1f1;
+    margin: 0;
+    text-align: center;
+}

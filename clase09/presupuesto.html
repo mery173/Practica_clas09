@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine - Home</title>
+    <link rel="stylesheet" href="css/hoja2.css">
+
+</head>
+<body>
+    <table>
+        <tr  style="background-color: rgb(248, 240, 231); padding-left: 20px">
+            <td class="titulo" >
+                <h3>CINE CERTUS</h3>
+            </td>
+            <td style="text-align: right ;">
+                atencion@certus.edu.pe
+            </td>
+        </tr>
+        <tr>
+            <td class="web" colspan="2" style="text-align:right ;">
+               <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2FCERTUSPERU%2F%3Flocale%3Des_LA"> <img src="img/redes/facebook.png" width="30" alt="" style="padding: 10px;"></a>
+               <a href="https://www.instagram.com/"> <img src="img/redes/instagram.png"  width="30" alt=""  style="padding: 10px;"></a>
+               <a href="https://web.whatsapp.com/"> <img src="img/redes/whatsapp.png"  width="30" alt=""  style="padding: 10px;"></a>
+            </td>
+        </tr><br>
+        <tr>
+            <td colspan="2" style="text-align:right ;" >
+                <ul class="menu">
+                 <a href="index.html"><li>Home</li></a> 
+                  <a href="nosotros.html"><li>Nosotros</li></a>
+                   <a href="cliente.html"> <li>Cliente</li></a>
+                   <a href="productos.html"> <li>Productos </li></a>
+                   <a href="contacto.html"> <li>Contacto</li></a>
+                   <a href="presupuesto.html"> <li>Presupuesto</li></a>
+                    <a href="login.html"><li>Login</li></a>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <!------------------------ FIN DEL ENCABEZADO------------------------------->
+        <title>PRESUPUESTO</title>
+    </head>
+    <body >
+        <div class="container">
+            <div>
+                <h1>PRESUPUESTO</h1>
+                <img src="img/planos.gif" alt="Planos">
+            </div>
+            <div>
+                <label for="district">Distrito:</label>
+                <select id="district" onchange="updatePrice()">
+                    <option value="450">Lima Cercado</option>
+                    <option value="550">La Victoria</option>
+                    <option value="650">Lince</option>
+                    <option value="670">Jesús María</option>
+                    <option value="750">Pueblo Libre</option>
+                </select>
+    
+                <div id="price" class="price-display">Precio por m2: S/ 450</div>
+    
+                <label for="length">Largo (m):</label>
+                <input type="number" id="length" placeholder="Ingrese el largo">
+    
+                <label for="width">Ancho (m):</label>
+                <input type="number" id="width" placeholder="Ingrese el ancho">
+    
+                <input type="button" value="Calcular" onclick="calculate()">
+                <input type="button" value="Limpiar" onclick="clearFields()">
+    
+                <div class="results" id="results"></div>
+            </div>
+        </div>
+    
+        <script>
+            const exchangeRate = 3.5;
+    
+            function updatePrice() {
+                const districtPrice = document.getElementById('district').value;
+                document.getElementById('price').textContent = `Precio por m2: S/ ${districtPrice}`;
+            }
+    
+            function calculate() {
+                const districtPrice = parseFloat(document.getElementById('district').value);
+                const length = parseFloat(document.getElementById('length').value);
+                const width = parseFloat(document.getElementById('width').value);
+    
+                if (isNaN(length) || isNaN(width)) {
+                    alert("Por favor ingrese valores válidos para largo y ancho.");
+                    return;
+                }
+    
+                const area = length * width;
+                const valueInSoles = area * districtPrice;
+                const valueInDollars = valueInSoles / exchangeRate;
+    
+                document.getElementById('results').innerHTML = `
+                    <p>Área: ${area.toFixed(2)} m2</p>
+                    <p>Valor en soles: S/ ${valueInSoles.toFixed(2)}</p>
+                    <p>Valor en dólares: $ ${valueInDollars.toFixed(2)}</p>
+                `;
+            }
+    
+            function clearFields() {
+                document.getElementById('district').value = "450";
+                updatePrice();
+                document.getElementById('length').value = "";
+                document.getElementById('width').value = "";
+                document.getElementById('results').innerHTML = "";
+            }
+    
+            document.addEventListener('DOMContentLoaded', updatePrice);
+        </script>
+    </body>
+    <footer>
+        © TODOS LOS DERECHOS RESERVADOS
+    </footer> 
+    </html>
+    
